@@ -54,7 +54,7 @@ router.get('/email/:email/:password', (req, res) => {
                     if (isMatch) {
                         res.status(200).json({
                             msg: 'The user is found',
-                            user: result[0]
+                            user: result[0],
                         })
                     } else {
                         res.status(500).json({ error: 'Wrong Password!' })
@@ -86,7 +86,7 @@ router.post('/', async (req, res) => {
 
         res.status(201).json({
             msg: 'User created successfully',
-            user_id: result.insertId
+            user_id: result.insertId,
         })
     } catch (err) {
         res.status(500).json({ error: err.message })
@@ -137,7 +137,7 @@ router.post('/login', async (req, res) => {
                     if (isMatch) {
                         res.status(200).json({
                             msg: 'Login successful',
-                            user: result[0]
+                            user: result[0],
                         })
                     } else {
                         res.status(500).json({ error: 'Wrong Password!' })
@@ -154,6 +154,8 @@ router.put('/:user_id', async (req, res) => {
     try {
         const { user_id } = req.params
         const { username, email, address, password } = req.body
+
+        
     } catch (error) {}
 })
 
